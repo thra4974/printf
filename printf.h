@@ -10,10 +10,13 @@ int print_char(char c);
 void _putstring(char *s);
 int _strlen(char *s);
 char *int_to_str(long int num, int base);
+int _printf(const char *format, ...);
 
-/**typedef print_type{
-	char *c;
-	void (*f)(va_list list);
-} ptype;
+/**
+ * typedef print_type{
+ *	char *c;
+ *	void (*f)(va_list list);
+ *} ptype;
 */
+
 #endif

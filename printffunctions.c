@@ -1,17 +1,36 @@
 #include "printf.h"
 
+/**
+ * _putchar - writes character to stdout
+ * @c: character to be written.
+ * Return: integer
+ */
+
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
 
+/**
+ * _strlen - function calculates string length.
+ * @s: pointer to string s.
+ * Return: length as integer.
+ */
+
 int _strlen(char *s)
 {
 	int i = 0;
+
 	while (s[i] != '\0')
 		i++;
 	return (i);
 }
+
+/**
+ * _putstring - prints a string.
+ * @s: pointer to string.
+ * Return: nothing.
+ */
 
 void _putstring(char *s)
 {
@@ -24,7 +43,14 @@ void _putstring(char *s)
 	}
 }
 
-char *int_to_str (long int num, int base)
+/**
+ * int_to_str - converts integer to string.
+ * @num: number
+ * @base: base
+ * Return: character array string
+ */
+
+char *int_to_str(long int num, int base)
 {
 	static char *array = "0123456789abcdef";
 	static char buffer[50];
@@ -41,8 +67,7 @@ char *int_to_str (long int num, int base)
 	ptr = &buffer[49];
 	*ptr = '\0';
 
-	do
-	{
+	do {
 		*--ptr = array[n % base];
 		n /= base;
 	} while (n != 0);
