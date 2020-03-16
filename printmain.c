@@ -9,13 +9,14 @@
 int _printf(const char *format, ...)
 {
 
+	int it = 0;
 	char *ptrstr;
 	char ch;
 	va_list list;
 
 	va_start(list, format);
 
-	while(*format)
+	while (*format)
 	{
 		if (*format == '%')
 		{
@@ -26,37 +27,41 @@ int _printf(const char *format, ...)
 				ch = va_arg(list, int);
 				_putchar(ch);
 				format++;
+				it++;
 				break;
 			case 's':
 				ptrstr = va_arg(list, char *);
 				_putstring(ptrstr);
 				format++;
+				it += _strlen(ptrstr);
 				break;
 			case '%':
 				_putchar('%');
 				format++;
-
+				it++;
 				break;
 			case '\0':
 				break;
 			}
 
 		}
-/*		else if (*format == '\\')
-		{
-			format++;
-			_escape(*format);
-		}
+/*
+ *		else if (*format == '\\')
+ *		{
+ *			format++;
+ *			_escape(*format);
+ *		}
 */
 		else
 		{
 			_putchar(*format);
 			format++;
+			it++;
 		}
 
 	}
 
 	va_end(list);
 
-	return (0);
+	return (it);
 }
