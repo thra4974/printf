@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-int print_char(char c);
+int _putchar(char c);
 void _putstring(char *s);
 int _strlen(char *s);
 char *int_to_str(long int num, int base);
