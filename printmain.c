@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	char *ptrstr;
 	char ch;
 	va_list list;
+	long int num;
 
 	va_start(list, format);
 
@@ -34,6 +35,13 @@ int _printf(const char *format, ...)
 				_putstring(ptrstr);
 				format++;
 				it += _strlen(ptrstr);
+				break;
+			case 'd':
+			case 'i':
+				num = va_arg(list, int);
+				_putstring(int_to_str(num, 10));
+				format++;
+				it += _strlen(int_to_str(num, 10));
 				break;
 			case '%':
 				_putchar('%');
