@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "holberton.h"
 
 /**
  * _printf - produces output according to format
@@ -39,11 +39,15 @@ int _printf(const char *format, ...)
 				break;
 			case '\0':
 				break;
-//			default: //Need do figure out default.
 			}
 
 		}
-
+/*		else if (*format == '\\')
+		{
+			format++;
+			_escape(*format);
+		}
+*/
 		else
 		{
 			_putchar(*format);
