@@ -11,6 +11,7 @@ void _putstring(char *s);
 int _strlen(char *s);
 char *int_to_str(long int num, int base);
 int _printf(const char *format, ...);
+int _strcmp(const char *s1, char *s2);
 
 /**
  * typedef print_type{
