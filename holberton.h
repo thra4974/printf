@@ -13,11 +13,4 @@ char *int_to_str(long int num, int base);
 int _printf(const char *format, ...);
 int _strcmp(const char *s1, char *s2);
 
-/**
- * typedef print_type{
- *	char *c;
- *	void (*f)(va_list list);
- *} ptype;
-*/
-
 #endif
