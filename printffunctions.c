@@ -36,6 +36,8 @@ void _putstring(char *s)
 {
 	int i = 0;
 
+	if (s == NULL)
+		_putchar('\0');
 	while (*(s + i) != '\0')
 	{
 		_putchar(*(s + i));
@@ -53,7 +55,7 @@ void _putstring(char *s)
 char *int_to_str(long int num, int base)
 {
 	static char *array = "0123456789abcdef";
-	static char buffer[50];
+	static char buffer[1024];
 	char sign = 0;
 	char *ptr;
 	unsigned long n = num;
@@ -64,7 +66,7 @@ char *int_to_str(long int num, int base)
 		sign = '-';
 	}
 
-	ptr = &buffer[49];
+	ptr = &buffer[1023];
 	*ptr = '\0';
 
 	do {
