@@ -16,12 +16,11 @@ int _printf(const char *format, ...)
 	long int num;
 
 	va_start(list, format);
-
-	
 	if (format == NULL || (_strcmp(format, "%") == 0))
+	{
 		return (-1);
-	while(*format)
-
+	}
+	while (*format)
 	{
 		if (*format == '%')
 		{
@@ -36,6 +35,8 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				ptrstr = va_arg(list, char *);
+				if (ptrstr == NULL)
+					ptrstr = "(null)";
 				_putstring(ptrstr);
 				format++;
 				it += _strlen(ptrstr);
@@ -55,25 +56,14 @@ int _printf(const char *format, ...)
 			case '\0':
 				break;
 			}
-
 		}
-/*
- *		else if (*format == '\\')
- *		{
- *			format++;
- *			_escape(*format);
- *		}
-*/
 		else
 		{
 			_putchar(*format);
 			format++;
 			it++;
 		}
-
 	}
-
 	va_end(list);
-
 	return (it);
 }
