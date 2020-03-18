@@ -57,6 +57,7 @@ int _printf(const char *format, ...)
 				break;
 			default:
 				_putchar('%');
+				it++;
 			}
 		}
 		else
